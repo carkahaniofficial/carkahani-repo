@@ -40,7 +40,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "5-Speed Manual/AGS",
     drivetrain: "FWD",
-    image: "/suzuki-alto-white-compact-car.jpg",
+    image: "https://images.unsplash.com/photo-1549317666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center",
     description: "Pakistan's most popular compact car with excellent fuel economy and reliability.",
     kahani: "Suzuki Alto ki kahani 1979 mein shuru hui jab Suzuki ne ise Japan mein launch kiya.",
     companyStory: "Suzuki Motor Corporation ki shuruaat 1909 mein Michio Suzuki ne ki thi.",
@@ -61,7 +61,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "5-Speed Manual/CVT",
     drivetrain: "FWD",
-    image: "/suzuki-swift-red-hatchback.jpg",
+    image: "https://images.unsplash.com/photo-1552515695-3004980ad54e?w=800&h=600&fit=crop&crop=center",
     description: "Sporty hatchback with agile handling and modern features for urban driving.",
     kahani: "Swift ki kahani 2004 mein shuru hui jab Suzuki ne global market ke liye ise design kiya.",
     companyStory: "Suzuki Motor Corporation ki shuruaat 1909 mein Michio Suzuki ne ki thi.",
@@ -82,7 +82,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "6-Speed Manual/CVT",
     drivetrain: "FWD",
-    image: "/toyota-corolla-silver-sedan.jpg",
+    image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=800&h=600&fit=crop&crop=center",
     description: "World's best-selling sedan with proven reliability and comfort.",
     kahani: "Corolla ki shuruat 1966 mein hui aur ye duniya ki sabse zyada bikne wali car hai.",
     companyStory: "Toyota Motor Corporation ki buniyad 1937 mein Kiichiro Toyoda ne rakhi thi.",
@@ -103,7 +103,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "CVT",
     drivetrain: "FWD",
-    image: "/honda-civic-black-sedan.jpg",
+    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&crop=center",
     description: "Premium sedan with turbocharged performance and advanced technology.",
     kahani: "Honda Civic 1972 mein launch hui aur compact car segment mein revolution layi.",
     companyStory: "Honda Motor Company ki shuruaat 1948 mein Soichiro Honda ne ki thi.",
@@ -124,7 +124,7 @@ const carsData = [
     fuelType: "Hybrid",
     transmission: "eCVT",
     drivetrain: "FWD",
-    image: "/toyota-prius-blue-hybrid.jpg",
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&crop=center",
     description: "Pioneer hybrid vehicle with exceptional fuel efficiency and eco-friendly technology.",
     kahani: "Prius 1997 mein duniya ki pehli mass-production hybrid car ban kar history banayi.",
     companyStory: "Toyota Motor Corporation ki buniyad 1937 mein Kiichiro Toyoda ne rakhi thi.",
@@ -145,7 +145,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "5-Speed Manual/DCT",
     drivetrain: "FWD",
-    image: "/changan-alsvin-white-sedan.jpg",
+    image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&h=600&fit=crop&crop=center",
     description: "Modern Chinese sedan offering great value with contemporary design and features.",
     kahani: "Changan Alsvin Pakistan mein 2021 mein launch hui aur affordable luxury segment mein jagah banayi.",
     companyStory: "Changan Automobile ki shuruaat 1862 mein hui aur ye China ki oldest car company hai.",
@@ -166,7 +166,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "7-Speed DCT",
     drivetrain: "FWD",
-    image: "/mg-hs-red-suv.jpg",
+    image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop&crop=center",
     description: "Stylish compact SUV with turbocharged performance and premium features.",
     kahani: "MG HS 2018 mein launch hui aur compact SUV segment mein naya standard set kiya.",
     companyStory: "MG Motor ki shuruaat 1924 mein UK mein hui aur ab ye Chinese ownership mein hai.",
@@ -187,7 +187,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "6-Speed Automatic",
     drivetrain: "FWD/AWD",
-    image: "/kia-sportage-gray-suv.jpg",
+    image: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=600&fit=crop&crop=center",
     description: "Reliable compact SUV with bold design and comprehensive safety features.",
     kahani: "Kia Sportage 1993 mein launch hui aur Kia ki pehli SUV thi jo global success bani.",
     companyStory: "Kia Motors ki shuruaat 1944 mein South Korea mein hui aur ab ye Hyundai ka hissa hai.",
@@ -208,7 +208,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "6-Speed Automatic",
     drivetrain: "FWD/AWD",
-    image: "/hyundai-tucson-blue-suv.jpg",
+    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=800&h=600&fit=crop&crop=center",
     description: "Modern compact SUV with distinctive design and advanced technology.",
     kahani:
       "Hyundai Tucson 2004 mein launch hui aur compact SUV segment mein Hyundai ka strong presence establish kiya.",
@@ -230,7 +230,7 @@ const carsData = [
     fuelType: "Diesel",
     transmission: "6-Speed Manual/Automatic",
     drivetrain: "4WD",
-    image: "/isuzu-dmax-white-pickup.jpg",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center",
     description: "Rugged pickup truck built for work and adventure with excellent towing capacity.",
     kahani: "Isuzu D-Max 2002 mein launch hui aur commercial vehicle segment mein reliability ka symbol bani.",
     companyStory: "Isuzu Motors ki shuruaat 1916 mein Japan mein hui aur ye commercial vehicles mein specialist hai.",
@@ -251,7 +251,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "8-Speed Automatic",
     drivetrain: "RWD",
-    image: "/bmw-3-series-white-luxury.jpg",
+    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop&crop=center",
     description: "Ultimate driving machine with perfect balance of performance and luxury.",
     kahani: "BMW 3 Series 1975 mein launch hui aur luxury sports sedan segment define kiya.",
     companyStory: "BMW ki shuruaat 1916 mein aircraft engines banane se hui, phir cars mein expand kiya.",
@@ -272,7 +272,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "9-Speed Automatic",
     drivetrain: "RWD",
-    image: "/mercedes-c-class-silver-luxury.jpg",
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&h=600&fit=crop&crop=center",
     description: "Epitome of luxury and refinement with cutting-edge technology.",
     kahani: "Mercedes C-Class 1993 mein launch hui aur compact luxury segment mein benchmark set kiya.",
     companyStory: "Mercedes-Benz ki shuruaat 1886 mein Karl Benz ne ki, duniya ki pehli automobile company.",
@@ -293,7 +293,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "7-Speed S-Tronic",
     drivetrain: "Quattro AWD",
-    image: "/audi-a4-black-luxury.jpg",
+    image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop&crop=center",
     description: "Sophisticated luxury sedan with Quattro all-wheel drive technology.",
     kahani: "Audi A4 1994 mein launch hui aur premium sedan segment mein technology leadership establish ki.",
     companyStory:
@@ -315,7 +315,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "8-Speed PDK",
     drivetrain: "RWD",
-    image: "/porsche-911-red-sports.jpg",
+    image: "https://images.unsplash.com/photo-1544829099-b9a0c5303bea?w=800&h=600&fit=crop&crop=center",
     description: "Iconic sports car with timeless design and exceptional performance.",
     kahani: "Porsche 911 1963 mein launch hui aur sports car ki definition change kar di.",
     companyStory: "Porsche ki shuruaat 1931 mein Ferdinand Porsche ne ki, engineering excellence ka symbol.",
@@ -336,7 +336,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "7-Speed DCT",
     drivetrain: "RWD",
-    image: "/ferrari-f8-yellow-supercar.jpg",
+    image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop&crop=center",
     description: "Italian masterpiece with breathtaking performance and stunning design.",
     kahani: "Ferrari F8 Tributo 2019 mein launch hui, V8 engine ki tribute ke roop mein.",
     companyStory: "Ferrari ki shuruaat 1939 mein Enzo Ferrari ne ki, racing aur luxury ka perfect combination.",
@@ -357,7 +357,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "7-Speed DCT",
     drivetrain: "AWD",
-    image: "/lamborghini-huracan-green-supercar.jpg",
+    image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop&crop=center",
     description: "Raging bull with naturally aspirated V10 and all-wheel drive precision.",
     kahani: "Lamborghini Huracán 2014 mein launch hui, Gallardo ka successor ban kar.",
     companyStory: "Lamborghini ki shuruaat 1963 mein Ferruccio Lamborghini ne ki, Ferrari ko challenge karne ke liye.",
@@ -378,7 +378,7 @@ const carsData = [
     fuelType: "Electric",
     transmission: "Single-Speed",
     drivetrain: "AWD",
-    image: "/tesla-model-s-white-electric.jpg",
+    image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&h=600&fit=crop&crop=center",
     description: "Revolutionary electric sedan with autopilot and over-the-air updates.",
     kahani: "Tesla Model S 2012 mein launch hui aur electric vehicle revolution ki shuruat ki.",
     companyStory: "Tesla ki shuruaat 2003 mein Elon Musk ne ki, sustainable transport ka vision lekar.",
@@ -399,7 +399,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "10-Speed Automatic",
     drivetrain: "RWD",
-    image: "/ford-mustang-blue-muscle.jpg",
+    image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=600&fit=crop&crop=center",
     description: "American muscle car icon with thunderous V8 power and aggressive styling.",
     kahani: "Ford Mustang 1964 mein launch hui aur American muscle car revolution ki shuruat ki.",
     companyStory: "Ford Motor Company ki shuruaat 1903 mein Henry Ford ne ki.",
@@ -420,7 +420,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "10-Speed Automatic",
     drivetrain: "RWD",
-    image: "/chevrolet-camaro-yellow-muscle.jpg",
+    image: "https://images.unsplash.com/photo-1552515695-3004980ad54e?w=800&h=600&fit=crop&crop=center",
     description: "Iconic American muscle car with supercharged V8 and track-ready performance.",
     kahani: "Chevrolet Camaro 1966 mein launch hui, Ford Mustang ka direct competitor ban kar.",
     companyStory: "Chevrolet ki shuruaat 1911 mein Louis Chevrolet aur William Durant ne ki.",
@@ -441,7 +441,7 @@ const carsData = [
     fuelType: "Petrol",
     transmission: "8-Speed Automatic",
     drivetrain: "RWD",
-    image: "/dodge-challenger-orange-muscle.jpg",
+    image: "https://images.unsplash.com/photo-1549317666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center",
     description: "Most powerful muscle car with supercharged Hellcat engine and retro styling.",
     kahani: "Dodge Challenger 1970 mein launch hui, muscle car era ka icon ban kar.",
     companyStory: "Dodge ki shuruaat 1900 mein Dodge Brothers ne ki, American automotive history ka hissa.",
@@ -455,6 +455,16 @@ export default function CarsPage() {
   const [selectedBrand, setSelectedBrand] = useState("all")
   const [activeFilter, setActiveFilter] = useState("All")
   const [visibleCars, setVisibleCars] = useState(8)
+
+  const availableCategories = useMemo(() => {
+    const categories = [...new Set(carsData.map((car) => car.category))]
+    return categories.sort()
+  }, [])
+
+  const availableBrands = useMemo(() => {
+    const brands = [...new Set(carsData.map((car) => car.brand))]
+    return brands.sort()
+  }, [])
 
   const filteredCars = useMemo(() => {
     return carsData.filter((car) => {
@@ -482,7 +492,19 @@ export default function CarsPage() {
 
   const handleCategoryFilter = (category: string) => {
     setActiveFilter(category)
-    setSelectedCategory(category === "All" ? "all" : category.toLowerCase())
+    if (category === "All") {
+      setSelectedCategory("all")
+    } else if (category === "Budget") {
+      setSelectedCategory("budget car")
+    } else if (category === "Compact") {
+      setSelectedCategory("compact hatchback")
+    } else if (category === "SUV") {
+      setSelectedCategory("suvs")
+    } else if (category === "Electric") {
+      setSelectedCategory("evs")
+    } else {
+      setSelectedCategory(category.toLowerCase())
+    }
     setVisibleCars(8)
   }
 
@@ -539,21 +561,15 @@ export default function CarsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Categories</SelectItem>
-                <SelectItem value="budget">Budget</SelectItem>
-                <SelectItem value="compact">Compact</SelectItem>
-                <SelectItem value="mid-range">Mid-Range</SelectItem>
-                <SelectItem value="suv">SUV</SelectItem>
-                <SelectItem value="luxury suv">Luxury SUV</SelectItem>
-                <SelectItem value="premium">Premium</SelectItem>
+                <SelectItem value="budget car">Budget Car</SelectItem>
+                <SelectItem value="compact hatchback">Compact Hatchback</SelectItem>
+                <SelectItem value="sedan">Sedan</SelectItem>
+                <SelectItem value="suvs">SUVs</SelectItem>
+                <SelectItem value="pickup">Pickup</SelectItem>
                 <SelectItem value="luxury">Luxury</SelectItem>
-                <SelectItem value="ultra luxury">Ultra Luxury</SelectItem>
                 <SelectItem value="sports">Sports</SelectItem>
                 <SelectItem value="muscle">Muscle</SelectItem>
-                <SelectItem value="classic">Classic</SelectItem>
-                <SelectItem value="supercar">Supercar</SelectItem>
-                <SelectItem value="hypercar">Hypercar</SelectItem>
-                <SelectItem value="electric">Electric</SelectItem>
-                <SelectItem value="hybrid">Hybrid</SelectItem>
+                <SelectItem value="evs">EVs</SelectItem>
               </SelectContent>
             </Select>
             <Select value={selectedBrand} onValueChange={handleBrandChange}>
@@ -562,28 +578,11 @@ export default function CarsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Brands</SelectItem>
-                <SelectItem value="suzuki">Suzuki</SelectItem>
-                <SelectItem value="toyota">Toyota</SelectItem>
-                <SelectItem value="haval">Haval</SelectItem>
-                <SelectItem value="changan">Changan</SelectItem>
-                <SelectItem value="honda">Honda</SelectItem>
-                <SelectItem value="bmw">BMW</SelectItem>
-                <SelectItem value="mercedes-benz">Mercedes-Benz</SelectItem>
-                <SelectItem value="porsche">Porsche</SelectItem>
-                <SelectItem value="lamborghini">Lamborghini</SelectItem>
-                <SelectItem value="ferrari">Ferrari</SelectItem>
-                <SelectItem value="bugatti">Bugatti</SelectItem>
-                <SelectItem value="tesla">Tesla</SelectItem>
-                <SelectItem value="ford">Ford</SelectItem>
-                <SelectItem value="chevrolet">Chevrolet</SelectItem>
-                <SelectItem value="dodge">Dodge</SelectItem>
-                <SelectItem value="jaguar">Jaguar</SelectItem>
-                <SelectItem value="lucid">Lucid</SelectItem>
-                <SelectItem value="rivian">Rivian</SelectItem>
-                <SelectItem value="polestar">Polestar</SelectItem>
-                <SelectItem value="aston martin">Aston Martin</SelectItem>
-                <SelectItem value="mclaren">McLaren</SelectItem>
-                <SelectItem value="koenigsegg">Koenigsegg</SelectItem>
+                {availableBrands.map((brand) => (
+                  <SelectItem key={brand} value={brand.toLowerCase()}>
+                    {brand}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -593,32 +592,19 @@ export default function CarsPage() {
       {/* Category Filters */}
       <section className="py-6 sm:py-8 px-4 max-w-7xl mx-auto">
         <div className="flex flex-wrap gap-2 justify-center">
-          {[
-            "All",
-            "Budget",
-            "Compact",
-            "Mid-Range",
-            "SUV",
-            "Premium",
-            "Luxury",
-            "Sports",
-            "Muscle",
-            "Classic",
-            "Supercar",
-            "Hypercar",
-            "Electric",
-            "Hybrid",
-          ].map((category) => (
-            <Button
-              key={category}
-              variant={category === activeFilter ? "default" : "outline"}
-              size="sm"
-              className={category === activeFilter ? "" : "bg-transparent"}
-              onClick={() => handleCategoryFilter(category)}
-            >
-              {category}
-            </Button>
-          ))}
+          {["All", "Budget", "Compact", "Sedan", "SUV", "Pickup", "Luxury", "Sports", "Muscle", "Electric"].map(
+            (category) => (
+              <Button
+                key={category}
+                variant={category === activeFilter ? "default" : "outline"}
+                size="sm"
+                className={category === activeFilter ? "" : "bg-transparent"}
+                onClick={() => handleCategoryFilter(category)}
+              >
+                {category}
+              </Button>
+            ),
+          )}
         </div>
       </section>
 
@@ -644,7 +630,8 @@ export default function CarsPage() {
                   className="w-full h-40 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement
-                    target.src = "/modern-sports-car-on-highway-at-sunset-with-dramat.jpg"
+                    target.src =
+                      "https://images.unsplash.com/photo-1549317666-fcd25c85cd64?w=800&h=600&fit=crop&crop=center"
                   }}
                 />
                 <Badge className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-primary text-primary-foreground text-xs">
