@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -113,62 +113,106 @@ interface ReviewPageProps {
 
 export default function ReviewPage({ params }: ReviewPageProps) {
   const [isSaved, setIsSaved] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const review = reviewsData[params.id]
+
+  useEffect(() => {
+    setMounted(true)
+
+    if (typeof window !== "undefined") {
+      try {
+        const savedReviews = JSON.parse(localStorage.getItem("savedReviews") || "[]")
+        setIsSaved(savedReviews.includes(review?.id))
+      } catch (error) {
+        console.error("Error loading saved reviews:", error)
+      }
+    }
+  }, [review?.id])
 
   if (!review) {
     notFound()
   }
 
   const handleSaveReview = () => {
+    if (!mounted) return
+
     setIsSaved(!isSaved)
-    const savedReviews = JSON.parse(localStorage.getItem("savedReviews") || "[]")
-    if (!isSaved) {
-      savedReviews.push(review.id)
-      localStorage.setItem("savedReviews", JSON.stringify(savedReviews))
-    } else {
-      const updatedSaved = savedReviews.filter((id: number) => id !== review.id)
-      localStorage.setItem("savedReviews", JSON.stringify(updatedSaved))
+
+    try {
+      if (typeof window !== "undefined") {
+        const savedReviews = JSON.parse(localStorage.getItem("savedReviews") || "[]")
+        if (!isSaved) {
+          savedReviews.push(review.id)
+          localStorage.setItem("savedReviews", JSON.stringify(savedReviews))
+        } else {
+          const updatedSaved = savedReviews.filter((id: number) => id !== review.id)
+          localStorage.setItem("savedReviews", JSON.stringify(updatedSaved))
+        }
+      }
+    } catch (error) {
+      console.error("Error saving review:", error)
     }
   }
 
   const handleShareReview = async () => {
-    const shareUrl = `${window.location.origin}/reviews/${review.id}`
-    const shareData = {
-      title: review.title,
-      text: `Check out this review of the ${review.title}`,
-      url: shareUrl,
-    }
+    if (!mounted) return
 
-    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-      try {
-        await navigator.share(shareData)
-        console.log("Review shared successfully")
-      } catch (err: any) {
-        console.log("Error sharing:", err)
-        // Fallback to clipboard if user cancels or error occurs
-        if (err.name !== "AbortError") {
+    try {
+      if (typeof window !== "undefined") {
+        const shareUrl = `${window.location.origin}/reviews/${review.id}`
+        const shareData = {
+          title: review.title,
+          text: `Check out this review of the ${review.title}`,
+          url: shareUrl,
+        }
+
+        if (
+          typeof navigator !== "undefined" &&
+          navigator.share &&
+          navigator.canShare &&
+          navigator.canShare(shareData)
+        ) {
+          try {
+            await navigator.share(shareData)
+            console.log("Review shared successfully")
+          } catch (err: any) {
+            console.log("Error sharing:", err)
+            // Fallback to clipboard if user cancels or error occurs
+            if (err.name !== "AbortError") {
+              copyToClipboard(shareUrl)
+            }
+          }
+        } else {
+          // Fallback: copy to clipboard
           copyToClipboard(shareUrl)
         }
       }
-    } else {
-      // Fallback: copy to clipboard
-      copyToClipboard(shareUrl)
+    } catch (error) {
+      console.error("Error sharing review:", error)
     }
   }
 
   const copyToClipboard = async (text: string) => {
+    if (!mounted) return
+
     try {
-      await navigator.clipboard.writeText(text)
-      alert("Review link copied to clipboard!")
+      if (typeof navigator !== "undefined" && navigator.clipboard) {
+        await navigator.clipboard.writeText(text)
+        alert("Review link copied to clipboard!")
+      } else {
+        // Final fallback for older browsers
+        if (typeof document !== "undefined") {
+          const textArea = document.createElement("textarea")
+          textArea.value = text
+          document.body.appendChild(textArea)
+          textArea.select()
+          document.execCommand("copy")
+          document.body.removeChild(textArea)
+          alert("Review link copied to clipboard!")
+        }
+      }
     } catch (err) {
-      // Final fallback for older browsers
-      const textArea = document.createElement("textarea")
-      textArea.value = text
-      document.body.appendChild(textArea)
-      textArea.select()
-      document.execCommand("copy")
-      document.body.removeChild(textArea)
-      alert("Review link copied to clipboard!")
+      console.error("Error copying to clipboard:", err)
     }
   }
 
@@ -217,11 +261,17 @@ export default function ReviewPage({ params }: ReviewPageProps) {
               <Button
                 className={`flex items-center gap-2 ${isSaved ? "bg-red-500 hover:bg-red-600" : ""}`}
                 onClick={handleSaveReview}
+                disabled={!mounted}
               >
                 <Heart className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`} />
                 {isSaved ? "Saved" : "Save Review"}
               </Button>
-              <Button variant="outline" className="flex items-center gap-2 bg-transparent" onClick={handleShareReview}>
+              <Button
+                variant="outline"
+                className="flex items-center gap-2 bg-transparent"
+                onClick={handleShareReview}
+                disabled={!mounted}
+              >
                 <Share2 className="h-4 w-4" />
                 Share
               </Button>
@@ -381,7 +431,9 @@ export default function ReviewPage({ params }: ReviewPageProps) {
                 height={300}
                 className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
                 onClick={() => {
-                  window.open(image, "_blank")
+                  if (typeof window !== "undefined") {
+                    window.open(image, "_blank")
+                  }
                 }}
               />
             </div>

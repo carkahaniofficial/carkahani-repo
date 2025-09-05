@@ -33,8 +33,13 @@ export function ImageModal({ isOpen, onClose, images, currentIndex, onNavigate }
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [mounted, setMounted] = useState(false)
 
   const currentImage = images[currentIndex]
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Reset zoom and position when image changes
   useEffect(() => {
@@ -44,7 +49,7 @@ export function ImageModal({ isOpen, onClose, images, currentIndex, onNavigate }
 
   // Handle keyboard navigation
   useEffect(() => {
-    if (!isOpen) return
+    if (!isOpen || !mounted) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
       switch (e.key) {
@@ -71,22 +76,36 @@ export function ImageModal({ isOpen, onClose, images, currentIndex, onNavigate }
       }
     }
 
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [isOpen, currentIndex, images.length, onClose, onNavigate])
+    try {
+      if (typeof document !== "undefined") {
+        document.addEventListener("keydown", handleKeyDown)
+        return () => document.removeEventListener("keydown", handleKeyDown)
+      }
+    } catch (error) {
+      console.error("Error setting up keyboard listeners:", error)
+    }
+  }, [isOpen, currentIndex, images.length, onClose, onNavigate, mounted])
 
   // Prevent body scroll when modal is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
+    if (!mounted) return
 
-    return () => {
-      document.body.style.overflow = "unset"
+    try {
+      if (typeof document !== "undefined") {
+        if (isOpen) {
+          document.body.style.overflow = "hidden"
+        } else {
+          document.body.style.overflow = "unset"
+        }
+
+        return () => {
+          document.body.style.overflow = "unset"
+        }
+      }
+    } catch (error) {
+      console.error("Error managing body scroll:", error)
     }
-  }, [isOpen])
+  }, [isOpen, mounted])
 
   const handleZoomIn = () => {
     setZoom((prev) => Math.min(prev + 0.25, 3))
@@ -129,24 +148,31 @@ export function ImageModal({ isOpen, onClose, images, currentIndex, onNavigate }
   }
 
   const handleDownload = async () => {
+    if (!mounted) return
+
     try {
       const response = await fetch(currentImage.src)
       const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement("a")
-      link.href = url
-      link.download = `car-kahani-${currentImage.title.replace(/\s+/g, "-").toLowerCase()}.jpg`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      window.URL.revokeObjectURL(url)
+
+      if (typeof window !== "undefined" && typeof document !== "undefined") {
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = `car-kahani-${currentImage.title.replace(/\s+/g, "-").toLowerCase()}.jpg`
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+      }
     } catch (error) {
       console.error("Download failed:", error)
     }
   }
 
   const handleShare = async () => {
-    if (navigator.share) {
+    if (!mounted) return
+
+    if (typeof navigator !== "undefined" && navigator.share) {
       try {
         const response = await fetch(currentImage.src)
         const blob = await response.blob()
@@ -169,16 +195,19 @@ export function ImageModal({ isOpen, onClose, images, currentIndex, onNavigate }
   }
 
   const handleCopyLink = async () => {
+    if (!mounted) return
+
     try {
-      await navigator.clipboard.writeText(window.location.href)
-      // You could add a toast notification here
-      console.log("Link copied to clipboard")
+      if (typeof navigator !== "undefined" && navigator.clipboard && typeof window !== "undefined") {
+        await navigator.clipboard.writeText(window.location.href)
+        console.log("Link copied to clipboard")
+      }
     } catch (error) {
       console.error("Copy failed:", error)
     }
   }
 
-  if (!isOpen || !currentImage) return null
+  if (!mounted || !isOpen || !currentImage) return null
 
   return (
     <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm">

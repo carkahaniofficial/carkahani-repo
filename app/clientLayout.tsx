@@ -4,21 +4,28 @@ import type React from "react"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
-import { Suspense, useEffect, useState } from "react"
+import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { useLanguage } from "@/lib/language-context"
 import "./globals.css"
 
 function DynamicHtml({ children }: { children: React.ReactNode }) {
-  const { language } = useLanguage()
-  const [mounted, setMounted] = useState(false)
+  const { language, mounted } = useLanguage()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  if (!mounted) {
+    return (
+      <html lang="en" dir="ltr" suppressHydrationWarning>
+        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+          <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          </div>
+        </body>
+      </html>
+    )
+  }
 
   return (
-    <html lang={mounted ? language : "en"} dir={mounted && language === "ur" ? "rtl" : "ltr"} suppressHydrationWarning>
+    <html lang={language} dir={language === "ur" ? "rtl" : "ltr"} suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>{children}</body>
     </html>
   )
